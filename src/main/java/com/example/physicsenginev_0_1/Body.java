@@ -3,16 +3,14 @@ package com.example.physicsenginev_0_1;
 public class Body {
     //a single body must have a size, shape, area
 
-    //it must have a mass, and current vector describing magnitude and direction
-        //the vector should be printed onscreen from the origin of the object
+    //it must have a mass, and current vectors describing magnitude and direction
+        //the vectors should be printed onscreen from the origin of the object
 
     //information on the object itself should be:
     //current instant position
-    //previous instant position (1 frame ago)
-        //instant velocity (rate of change between previous and current positions)
-        //instant acceleration (rate of change between previous and current velocity)
+        //instant velocity
+        //instant acceleration
     //current net force being applied on object
-        //will be more complicated once implementing collisions, however, for basic implementations:
             //mass of object * current acceleration, there is no friction
 
     //the floor and any walls or world objects will be rigid affectors and will have infinite mass for convenience
@@ -44,18 +42,13 @@ public class Body {
         return force;
     }
 */
-
-    //you need 3 data-points of position for acceleration
-    //you cannot assume velocity from 1 datapoint of position, you need 2
-    //you need two data-points of velocity for instant acceleration, you'd need 3 data-points of position in total
-
+    //this is wrong lol
 
     //affector?
 
     /*public double Affector(double extrernalForce) {
         return null;
     }*/
-
 
     //scratch all of this:
     //any object will start with an initial velocity and acceleration of 0, at some position in the x,y plane.
