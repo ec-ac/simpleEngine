@@ -36,6 +36,9 @@ public class World {
         double rPixel = scale*r;
         gc.setFill(color);
         gc.fillOval(xPixel-rPixel, yPixel-rPixel, 2*rPixel, 2*rPixel);
+
+        /*gc.fillRoundRect(110, 60, 30, 30, 10, 10);
+        gc.strokeRoundRect(160, 60, 30, 30, 10, 10);*/
     }
 
     private double toPixelX(double x) {

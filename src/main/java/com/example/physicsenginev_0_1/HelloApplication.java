@@ -24,10 +24,13 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         //docu: https://docs.oracle.com/javafx/2/canvas/jfxpub-canvas.htm
         Canvas canvas = new Canvas(800, 600);
+
         World.getInstance().setGraphicsContext( canvas.getGraphicsContext2D() );
         World.getInstance().create();
+
         Group root = new Group();
         root.getChildren().add(canvas);
+
         stage.setScene(new Scene(root));
         stage.show();
 
@@ -58,6 +61,9 @@ public class HelloApplication extends Application {
                     smoothedFrameRate = currentFrameRate;
                 else
                     smoothedFrameRate = 0.95*smoothedFrameRate + 0.05*currentFrameRate;
+
+
+
                 String frameRate = String.valueOf( (int) (smoothedFrameRate + 0.5) );
                 canvas.getGraphicsContext2D().setStroke(Color.WHITE);
                 canvas.getGraphicsContext2D().strokeText(frameRate,10,30);
