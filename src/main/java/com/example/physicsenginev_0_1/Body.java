@@ -2,13 +2,10 @@ package com.example.physicsenginev_0_1;
 
 public class Body {
 
-    /**
+    /*
      * i will just do this in the most "natural way" that i can think of
      * this will mostly follow a Procedural mindset which i then will attempt to adapt more efficiently
      */
-
-
-
 
     //a single body must have a size, shape, area
 
@@ -22,110 +19,13 @@ public class Body {
     //current net force being applied on object
             //mass of object * current acceleration, there is no friction
 
-    //the floor and any walls or world objects will be rigid affectors and will have infinite mass for convenience
+    //the floor and any walls or world objects will be rigid effectors and will function as if they had
+    // infinite mass for convenience
 
     //universal vector would be gravity @9.81m/s^2
 
     //an object and its properties should be handled from any physics class, any task that would print the object on
     //screen should simply take the properties from its physics and then print it.
-
-    final double g = -9.81;
-    double yPos;
-    double xPos;
-    final double mass = 10;
-    double xVelocity;
-    double yVelocity;
-    double yAccel;
-    double xAccel;
-
-    Body body = new Body();
-
-    double weight = g * mass;
-
-    //affector? these will return current net force to be applied to the object
-    public double vAffector(double exForce1) {
-        double netForce = g + exForce1;
-        return netForce;
-    }
-
-    public double hAffector(double exForce1) {
-        double netForce = g + exForce1;
-        return netForce;
-    }
-
-    public double getG() {
-        return g;
-    }
-
-    public double getyPos() {
-        return yPos;
-    }
-
-    //position thresholds must be implemented
-    public void setyPos(double yPos) {
-        this.yPos = body.getyPos() + body.getyVelocity()/60;
-    }
-
-    public double getxPos() {
-        return xPos;
-    }
-
-    //position thresholds must be implemented
-    public void setxPos(double xPos) {
-        this.xPos = body.getxPos() + body.getyVelocity()/60;
-    }
-
-    public double getMass() {
-        return mass;
-    }
-
-    public double getxVelocity() {
-        return xVelocity;
-    }
-
-    public void setxVelocity(double xVelocity) {
-        this.xVelocity = body.getxVelocity() + body.getyAccel()/60;
-    }
-
-    public double getyVelocity() {
-        return yVelocity;
-    }
-
-    public void setyVelocity(double yVelocity) {
-        this.yVelocity = body.getyVelocity() + body.getyAccel()/60;
-    }
-
-    public double getyAccel() {
-        return yAccel;
-    }
-
-    public void setyAccel(double yAccel) {
-        this.yAccel = hAffector(body.getyForce()) / mass; //fix later
-    }
-
-    public double getxAccel() {
-        return xAccel;
-    }
-
-    public void setxAccel(double xAccel) {
-        this.xAccel = hAffector(body.getxForce()) / mass; //fix later
-    }
-
-    public Body getBody() {
-        return body;
-    }
-
-    public void setBody(Body body) {
-        this.body = body;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = mass * g;
-    }
 
     //there is probably a better way of setting this such that the v and h forces will be calc'ed in a single function
     //probably some data struct that im not using
@@ -148,16 +48,37 @@ public class Body {
         //net vertical force > weight (mass * g)
         //net vertical force will always have a negative g vector for gravity
 
-    //a force affector will work to change acceleration
+    //a force effector will work to change acceleration
     //change in acceleration will always be net force / mass
         //net force will always be the sum of all forces.
         //because this is primitive, we will only use 2 forces at a time for any y and 1 for any x net force
 
 
-    //a
-
-
     //there will be a single method executed once every 1/60 seconds that will update all these parameters
 
 
+    /*all vector values must return or be type array or list dimension 2
+
+    collisions must detect angle from both collision bodies, effectors won't care
+
+    only collisions will work with angles, everything else will be a vector
+
+    the main problem is that if everything depends on acceleration such that the only thing that can change an object's trajectory and velocity
+    is an applied external force, then i don't have a clean way of dealing with collisions
+
+
+    velocity is defined as the current velocity + da
+
+    however, velocity can also be defined specifically for collisions
+
+    therefore, velocity will be defined by both current acceleration due to forces AND any change in momentum due to collisions
+
+
+    drag is a function based on velocity
+
+    friction is a function based on velocity
+
+    weight is constant
+
+    acceleration will only happen when outer forces are applied*/
 }
