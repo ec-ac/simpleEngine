@@ -22,6 +22,8 @@ public class World {
 
     //Agrega objetos al mundo de simulación
     public void create() {
+
+
     }
 
     private GraphicsContext gc = null;
@@ -36,14 +38,22 @@ public class World {
         double rPixel = scale*r;
         gc.setFill(color);
         gc.fillOval(xPixel-rPixel, yPixel-rPixel, 2*rPixel, 2*rPixel);
+    }
 
-        /*gc.fillRoundRect(110, 60, 30, 30, 10, 10);
-        gc.strokeRoundRect(160, 60, 30, 30, 10, 10);*/
+    public void drawRectangle(double xCenter, double yCenter, double w, double h, Color color) {
+        double xPixel = toPixelX(xCenter);
+        double yPixel = toPixelY(yCenter);
+        double wPixel = 50* w;
+        double hPixel = 50 * h;
+        gc.setFill(color);
+        gc.fillRoundRect(xPixel - wPixel, yPixel- wPixel, wPixel, hPixel, 10, 10);
+
     }
 
     private double toPixelX(double x) {
         return scale*(x-xMin);
     }
+
     private double toPixelY(double y) {
         return scale*(yMax-y);
     }
@@ -54,8 +64,9 @@ public class World {
     //simulación de un periodo de tiempo, avanza el tiempo deltaT
     public void run(double t, double deltaT) {
 
-        drawCircle((t-(int)t),2, 0.5, Color.CADETBLUE);
+        drawRectangle((t-(int)t), 1, 0.5, 0.5, Color.CADETBLUE);
 
+        drawCircle((t-(int)t),2, 0.5, Color.CADETBLUE);
     }
 
 }
