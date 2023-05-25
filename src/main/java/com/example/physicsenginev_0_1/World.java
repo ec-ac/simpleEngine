@@ -43,11 +43,10 @@ public class World {
     public void drawRectangle(double xCenter, double yCenter, double w, double h, Color color) {
         double xPixel = toPixelX(xCenter);
         double yPixel = toPixelY(yCenter);
-        double wPixel = 50* w;
+        double wPixel = 50 * w;
         double hPixel = 50 * h;
         gc.setFill(color);
         gc.fillRoundRect(xPixel - wPixel, yPixel- wPixel, wPixel, hPixel, 10, 10);
-
     }
 
     private double toPixelX(double x) {
@@ -58,15 +57,17 @@ public class World {
         return scale*(yMax-y);
     }
 
-
-
-
     //simulación de un periodo de tiempo, avanza el tiempo deltaT
     public void run(double t, double deltaT) {
-
         drawRectangle((t-(int)t), 1, 0.5, 0.5, Color.CADETBLUE);
 
         drawCircle((t-(int)t),2, 0.5, Color.CADETBLUE);
     }
+
+
+    //projectile motion, with and without air resistance;
+
+
+
 
 }

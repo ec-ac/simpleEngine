@@ -73,9 +73,6 @@ public class HelloApplication extends Application {
 
         timeline.play();
         timer.start();
-
-
-
     }
 
 }
