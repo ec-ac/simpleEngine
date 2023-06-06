@@ -1,5 +1,6 @@
 package com.example.physicsenginev_0_1.RigidBodies;
 
+import javafx.scene.paint.Color;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,12 +9,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class RigidBody {
-    private double velocity[] = new double[2];
-    private double position[] = new double[2];
-    private double netForce[] = new double[2];
+    private double xVel;
+    private double yVel;
+    private double xPos;
+    private double yPos;
+    private double xNetForce;
+    private double yNetForce;
     private double mass;
-    private double color;
-    private double drag;
+    private Color color;
+    private double k;
     private Boolean isMovable;
 
 
